@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Результат
+{% endblock %}
+
+{% block content %}
+<h2>Результат вычисления</h2>
+
+<p><strong>Функция:</strong> {{ func_name }}</p>
+<p><strong>Пределы:</strong> от {{ a }} до {{ b }}</p>
+<p><strong>Разбиений:</strong> {{ n }}</p>
+<p><strong>Результат:</strong> {{ result }}</p>
+
+<p><a href="{{ url_for('calculator') }}">Вычислить ещё раз</a></p>
+{% endblock %}
