@@ -1,42 +1,33 @@
 {% extends "base.html" %}
 
-{% block title %}
-Калькулятор
-{% endblock %}
+{% block title %}Калькулятор{% endblock %}
 
 {% block content %}
 <h2>Вычисление интеграла</h2>
 
 {% if error %}
-<p style="color: red;"><strong>Ошибка:</strong> {{ error }}</p>
+<div class="error">
+    <strong>Ошибка:</strong> {{ error }}
+</div>
 {% endif %}
 
 <form method="POST">
     <p>
-        <label>Функция:</label><br>
-        <select name="function">
+        <label>Функция:</label>
+        <select name="function" required>
             <option value="x2">x²</option>
             <option value="sin">sin(x)</option>
             <option value="cos">cos(x)</option>
             <option value="exp">eˣ</option>
             <option value="sqrt">√x</option>
+            <option value="x">x</option>
+            <option value="const">1 (константа)</option>
         </select>
     </p>
 
-    <p>
-        <label>Предел a:</label><br>
-        <input type="number" step="any" name="a" required>
-    </p>
-
-    <p>
-        <label>Предел b:</label><br>
-        <input type="number" step="any" name="b" required>
-    </p>
-
-    <p>
-        <label>Количество n:</label><br>
-        <input type="number" name="n" min="1" required>
-    </p>
+    <p><label>Предел a:</label><input type="number" step="any" name="a" required></p>
+    <p><label>Предел b:</label><input type="number" step="any" name="b" required></p>
+    <p><label>Количество n:</label><input type="number" name="n" min="1" required></p>
 
     <button type="submit">Вычислить</button>
 </form>

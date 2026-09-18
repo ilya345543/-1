@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}
-Результат
-{% endblock %}
+{% block title %}Результат{% endblock %}
 
 {% block content %}
-<h2>Результат вычисления</h2>
+<h2>Результат</h2>
 
-<p><strong>Функция:</strong> {{ func_name }}</p>
-<p><strong>Пределы:</strong> от {{ a }} до {{ b }}</p>
-<p><strong>Разбиений:</strong> {{ n }}</p>
-<p><strong>Результат:</strong> {{ result }}</p>
+<div class="result">
+    <p><strong>Функция:</strong> {{ func_name }}</p>
+    <p><strong>Пределы:</strong> от {{ a }} до {{ b }}</p>
+    <p><strong>Разбиений:</strong> {{ n }}</p>
+    <p><strong>Результат:</strong> {{ result }}</p>
+</div>
 
-<p><a href="{{ url_for('calculator') }}">Вычислить ещё раз</a></p>
+{% if graph_url %}
+<div style="margin: 30px 0; text-align: center;">
+    <h3>График:</h3>
+    <img src="data:image/png;base64,{{ graph_url }}" style="max-width: 100%; border: 2px solid #ddd; border-radius: 8px;">
+</div>
+{% endif %}
+
+<p><a href="{{ url_for('calculator') }}">← Вычислить ещё раз</a></p>
 {% endblock %}

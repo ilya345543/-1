@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}
-О проекте
-{% endblock %}
+{% block title %}О проекте{% endblock %}
 
 {% block content %}
 <h2>О проекте</h2>
@@ -17,5 +15,27 @@
     <li><a href="{{ url_for('about_function', func_name='cos') }}">cos(x)</a></li>
     <li><a href="{{ url_for('about_function', func_name='exp') }}">eˣ</a></li>
     <li><a href="{{ url_for('about_function', func_name='sqrt') }}">√x</a></li>
+    <li><a href="{{ url_for('about_function', func_name='x') }}">x (линейная)</a></li>
+    <li><a href="{{ url_for('about_function', func_name='const') }}">1 (константа)</a></li>
 </ul>
+
+<style>
+ul li {
+    cursor: pointer;
+}
+
+ul li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    color: #d35400;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #ff6b35;
+}
+</style>
 {% endblock %}
